@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altius Investech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Apply universal box-sizing */
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+    
+        /* Prevent horizontal scrolling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Prevents white space on the sides */
+        }
+    
+        /* Fix for home section */
+        #home {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://unlistedkart.com/wp-content/uploads/2021/08/What-You-Should-Know-About-Indias-Largest-IPO-PayTM-.jpeg') no-repeat center center/cover;
+            text-align: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        #home h1, #home p {
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+            text-align: right;
+        }
+    
+        #home .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 30vh;
+        }
+    
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        #home .row {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 50px;
+        }
+    
+        #home .col-md-6 {
+            margin-left: 0;
+        }
+    
+        /* Common section padding */
+        section {
+            padding: 60px 0;
+        }
+    
+        /* Info-box styling */
+        .info-box {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .info-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+    
+        /* Footer content alignment */
+        .footer-content {
+            text-align: center;
+        }
+    
+        /* Navbar form control */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1030;
+        }
+    
+        .navbar-nav .nav-link {
+            margin-right: 5px;
+            font-size: 14.2px;
+            font-weight: 20px;
+            color: #fff;
+            transition: color 0.3s ease-in-out;
+            text-align: center;
+        }
+    
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;
+        }
+    
+        .navbar .btn-outline-light {
+            border-radius: 20px;
+            font-weight: 600;
+        }
+    
+        .navbar .btn-outline-light:hover {
+            background: #0056b3;
+            color: white;
+        }
+    
+        .input-group .form-control {
+            border-radius: 25px 0 0 25px;
+        }
+    
+        .input-group .btn {
+            border-radius: 0 25px 25px 0;
+        }
+    
+        .shadow {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Home buttons */
+        .home-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+    
+        .home-buttons .btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+            width: 130px;
+        }
+    
+        .home-buttons .btn:hover {
+            opacity: 0.9;
+        }
+    
+        /* Buyer and Seller Section Fix */
+        #for-buyer-seller .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+    
+        #for-buyer-seller .col-md-6 {
+            flex: 1 1 45%; /* Ensures two items per row */
+            margin-bottom: 20px;
+            margin-left: 0;
+        }
+    
+        #for-buyer-seller img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+    
+        #for-buyer-seller h5 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    
+        #for-buyer-seller p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+    
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            #home {
+                padding: 50px 15px;
+                text-align: center;
+            }
+    
+            #home .row {
+                flex-direction: column;
+                padding-right: 0;
+            }
+    
+            #home h1 {
+                font-size: 2rem;
+            }
+    
+            #home p {
+                font-size: 1rem;
+            }
+    
+            #home .col-md-6 {
+                margin-left: 0;
+            }
+    
+            #for-buyer-seller .row {
+                flex-direction: column;
+            }
+    
+            #for-buyer-seller .col-md-6 {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+    
+            #for-buyer-seller img {
+                width: 100%;
+            }
+    
+            .home-buttons {
+                bottom: 10px;
+                right: 10px;
+            }
+    
+            .home-buttons .btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                width: 100px;
+            }
+    
+            .footer-content {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="logo-removebg-preview.png" alt="Altius Investech" width="150">
+            </a>
+    
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <!-- Navbar Items -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How it Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#explore-companies">Explore Companies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#alternate-assets">Alternate Assets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#press">Press</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
+                    <!-- Login/Signup -->
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light px-4 ml-2" href="#" data-toggle="modal" data-target="#loginSignupModal">
+                            Login/Signup
+                        </a>
+                    </li>
+                    <!-- Search -->
+                    <li class="nav-item ml-3">
+                        <form class="form-inline">
+                            <div class="input-group" style="width: 250px;">
+                                <input class="form-control rounded-pill" type="search" placeholder="Search companies..." aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-light rounded-pill" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Home Section -->
+<section id="home">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h1>Buy and Sell Unlisted Shares, Pre-IPO Shares and ESOPs</h1>
+                <p>We aim to lower the entry barriers to Private Equity investments and make them easily accessible via our platform.</p>
+            </div>
+            <div class="col-md-6">
+                <!-- Content will be on top of background image -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- About Section -->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <!-- Introduction Section -->
+            <div class="section-title text-center mb-4">
+                <h2>About Us</h2>
+                <p>Until recently, access to pre-IPO companies has been limited. We provide investors access to pre-IPO and late-stage technology investments at reasonable minimums, helping you diversify your portfolio.</p>
+            </div>
+            
+            <!-- Key Features Section -->
+            <div class="row">
+                <!-- Feature 1: Extensive Network -->
+                <div class="col-md-3">
+                    <div class="info-box text-center p-3">
+                        <i class="fas fa-network-wired fa-3x mb-3"></i>
+                        <h5>Extensive Network</h5>
+                        <p>Helping us source superior deals before they hit the market.</p>
+                    </div>
+                </div>
+                <!-- Feature 2: Research and Analysis -->
+                <div class="col-md-3">
+                    <div class="info-box text-center p-3">
+                        <i class="fas fa-search-dollar fa-3x mb-3"></i>
+                        <h5>Research and Analysis</h5>
+                        <p>Our analysts apply in-depth research to price investments effectively.</p>
+                    </div>
+                </div>
+                <!-- Feature 3: Execution Excellence -->
+                <div class="col-md-3">
+                    <div class="info-box text-center p-3">
+                        <i class="fas fa-check-circle fa-3x mb-3"></i>
+                        <h5>Execution Excellence</h5>
+                        <p>25+ years of experience ensuring fast and efficient execution.</p>
+                    </div>
+                </div>
+                <!-- Feature 4: Legal, Tax & Compliance -->
+                <div class="col-md-3">
+                    <div class="info-box text-center p-3">
+                        <i class="fas fa-gavel fa-3x mb-3"></i>
+                        <h5>Legal, Tax & Compliance</h5>
+                        <p>Our team includes professionals to assist with any queries.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Investor and ESOP Shareholder Section -->
+            <div class="row mt-5">
+                <!-- For Investors -->
+                <div class="col-md-6">
+                    <div class="info-box bg-light p-4">
+                        <h3>For Investors</h3>
+                        <p>We curate investment opportunities in pre-IPO companies with a solid research-backed thesis and a time-bound exit plan.</p>
+                    </div>
+                </div>
+                <!-- For ESOP Shareholders -->
+                <div class="col-md-6">
+                    <div class="info-box bg-light p-4">
+                        <h3>For ESOP Shareholders</h3>
+                        <p>We help ESOP shareholders liquidate their shares even if they are not publicly traded by matching them with the right buyers.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Funding Information Section -->
+            <div class="mt-5">
+                <h3>Funding Information</h3>
+                <p>We raised $1 million in August 2021 from angel investors:</p>
+                <ul>
+                    <li>Saurabh Aggarwal – Founder of Fitso</li>
+                    <li>Pinak Dattaray – Founder of Ripik.AI</li>
+                    <li>Harsh Sarawagi – Rhino Capital</li>
+                    <li>Dalal Family Office</li>
+                    <li>Credo Minerals Family Office</li>
+                </ul>
+            </div>
+    
+            <!-- Founders Section -->
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="founder-info text-center">
+                        <img src="https://altiusinvestech.com/photos/sandip.jpg" alt="Sandip Ginodia" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                        <h4>Sandip Ginodia</h4>
+                        <p><strong>Founder & CEO</strong></p>
+                        <p>25+ years of equity experience, Director at Sapphire Wealth, and a member of NSE/BSE.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="founder-info text-center">
+                        <img src="https://altiusinvestech.com/photos/abhishek.jpg" alt="Abhishek Ginodia" class="img-fluid rounded-circle mb-3" style="width: 150px;">
+                        <h4>Abhishek Ginodia</h4>
+                        <p><strong>Co-Founder</strong></p>
+                        <p>CA, CFA with 10+ years of corporate experience at PwC, ITC, and Marico.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- How It Works Section -->
+<section id="how-it-works">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>How It Works</h2>
+            <p>Follow these steps to complete your transactions smoothly.</p>
+        </div>
+        <div class="row">
+            <!-- Step 1 & 2 -->
+            <div class="col-md-6">
+                <div class="info-box">
+                    <img src="https://static.thenounproject.com/png/6478-200.png" alt="SignUp" class="img-fluid mb-3" style="width: 50px; height: auto;">
+                    <h5>Step 1 - SignUp and complete KYC</h5>
+                    <p>Signup on our platform, complete your KYC to verify your account with us.</p>
+                </div>
+                <div class="info-box">
+                    <img src="https://static.thenounproject.com/png/1468276-200.png" alt="Place Order" class="img-fluid mb-3" style="width: 50px; height: auto;">
+                    <h5>Step 3 - Complete Payment</h5>
+                    <p>Select a payment method and complete the payment for your order.</p>
+                </div>
+            </div>
+            <!-- Step 3 & 4 -->
+            <div class="col-md-6">
+                <div class="info-box">
+                    <img src="https://static.thenounproject.com/png/832773-200.png" alt="Complete Payment" class="img-fluid mb-3" style="width: 50px; height: auto;">
+                    <h5>Step 2 - Place order</h5>
+                    <p>Select a company and the number of shares you would like to purchase and place an order.</p>
+                </div>
+                <div class="info-box">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsuKN621FezCxR7Vbm2oW3mw5t28aPoUd7xiV-WeJE17OuVtIdV2hReBkd0SmQhTUWf24&usqp=CAU" alt="Trade Execution" class="img-fluid mb-3" style="width: 50px; height: auto;">
+                    <h5>Step 4 - Trade gets executed under 24 hours</h5>
+                    <p>Once we receive your payment, the shares are transferred to your DEMAT account within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="for-buyer-seller" class="bg-light">
+    <div class="section-title text-center">
+        <h2>For Buyer and Seller</h2>
+        <p>How buyers and sellers can make the most of our platform.</p>
+    </div>
+    <div class="row">
+        <!-- Buyer -->
+        <div class="col-md-6">
+            <img src="https://altiusinvestech.com/photos/buyers.jpg" alt="Buyer Process" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h5>For Buyer</h5>
+            <p>1. Signup on our trade platform and complete your KYC with us</p>
+            <p>2. Explore from the list of companies to invest in</p>
+            <p>3. Do your research and place a buy order for the quantity you wish to buy</p>
+            <p>4. Select a mode of payment and complete your payment either online or offline</p>
+            <p>5. Once the payment is made, you will receive your shares in your DEMAT within 24 hours</p>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Seller -->
+        <div class="col-md-6">
+            <h5>For Seller</h5>
+            <p>1. Signup on our trade platform and complete your KYC with us</p>
+            <p>2. Select the company you want to liquidate, enter the quantity and rate per share you want to place your order at</p>
+            <p>3. Initiate transfer of shares</p>
+            <p>4. Receive funds within 24 hours of receipt of shares.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://altiusinvestech.com/photos/sellers.jpg" alt="Seller Process" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+    <!-- Explore Companies Section -->
+    <section id="explore-companies" class="bg-light">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Explore Companies</h2>
+                <p>Browse through our list of vetted companies for exciting investment opportunities.</p>
+            </div>
+            <div class="comp_img" id="comp_img">
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/18o0HjbxQVQc1615290981Bph5dyPUd1kv.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/1E66Y2KgEjP61618824429POkggsIWVpli.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/18o0HjbxQVQc1615290981Bph5dyPUd1kv.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/1E66Y2KgEjP61618824429POkggsIWVpli.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/MHokhPh9NZFt1660393794Ykld0fwB0VIj.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/MHokhPh9NZFt1660393794Ykld0fwB0VIj.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/nTlmFluENZuU1721980567KF3sFm8orFuF.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/OeX9tipgzEcW1719391542j705rLk5rvpF.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/Q87L7O4kLBB31711682653q5W5jhhWyaku.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/qocSHe4xvwvK1618825153hJdVkCwmeUmS.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/qSwKXVdcTRed1614952377IjKK46PQHv9Z.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/SSkkF5hho6DR16408467454hZLjOa7Hetv.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/tjsDytlZtd791672317779Gmdbc0MmrKc3.jpg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/uBFkBgYElDy51615290319wAvbXGGSWizt.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/v4LgMWK3d6811629105893LWSfSmSOkoRV.jpeg' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/Vc0KjK5nMDpQ1722323424wEJXQiUzXMGL.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/vXP6GrR4m5Jx1615290109wP4YFmQIhtWC.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/w1RvmkJuLoOw1630559852XiOdneFHsKJ5.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/XBPo62SUH8XF1611835325tM6EGBSYpSL61617799348.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/yV7iTVgIauC11676898254BtMiR8sD9b4t.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/hero-fincorp' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/ZBeMXuxnk4sR1613820106bcaP4mMwLU8b.png' alt='Hero Fincorp Ltd.' style="width: 100px; height: auto;" />
+                </a>
+                <a href='./company/motilal-oswal-home-finance-buy-sell-unlisted-shares' class='company-logo'>
+                    <img src='https://api.altiusinvestech.com/all/companyLogo/zDItekex7puW16178133617eC12B1uCyzz.png' alt='Motilal Oswal Home Finance Ltd' style="width: 100px; height: auto;" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternate Assets Section -->
+    <section id="alternate-assets">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Alternate Assets</h2>
+                <p>Discover alternative assets that will diversify your portfolio and enhance returns.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section id="press" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Latest Media Reports</h2>
+            <div class="row">
+                <!-- Press Article 1 -->
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h3><a href="/press/article1" class="text-decoration-none text-dark">Press Article 1</a></h3>
+                        <p class="text-muted">Short snippet of the press article...</p>
+                    </div>
+                </div>
+                <!-- Press Article 2 -->
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h3><a href="/press/article2" class="text-decoration-none text-dark">Press Article 2</a></h3>
+                        <p class="text-muted">Short snippet of the press article...</p>
+                    </div>
+                </div>
+                <!-- Press Article 3 -->
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h3><a href="/press/article3" class="text-decoration-none text-dark">Press Article 3</a></h3>
+                        <p class="text-muted">Short snippet of the press article...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/press" class="btn btn-primary">Explore More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Hot Blogs</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h5>Investment Strategies in 2024</h5>
+                        <p>Read about the latest trends in investment strategies for 2024 and beyond.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h5>Wealth Management Tips</h5>
+                        <p>Maximize your wealth with these expert management tips for investors.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="info-box">
+                        <h5>Risk Management for Investors</h5>
+                        <p>Learn how to minimize risks while investing in the financial markets.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="blog.html" class="btn btn-primary">Explore More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-us">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Contact Us</h2>
+            </div>
+            <form>
+                <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </section>
+<!-- Fixed Buttons on Home Page -->
+<div class="home-buttons">
+    <button id="requestQuoteBtn" class="btn btn-sm btn-primary">Request Quote</button>
+    <a href="https://wa.me/yourwhatsappnumber" target="_blank" class="btn btn-success">WhatsApp</a>
+    <a href="https://play.google.com/store/apps/details?id=yourandroidapp" target="_blank" class="btn btn-danger">Android</a>
+    <a href="https://apps.apple.com/app/id/yourappleappid" target="_blank" class="btn btn-dark">iOS</a>
+    <a href="https://trade.altiusinvestech.com/" class="btn btn-info">NSE Stocks</a>
+</div>
+
+
+<!-- Modal for Request a Quote (hidden initially) -->
+<div class="modal" id="requestQuoteModal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h2>Request a Quote</h2>
+        <form>
+            <div class="form-group">
+                <label for="quote-name">Your Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="quote-name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-email">Your E-mail <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="quote-email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-mobile">Your Mobile No. <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control" id="quote-mobile" placeholder="Enter your mobile number" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-company">Company Name</label>
+                <input type="text" class="form-control" id="quote-company" placeholder="Enter your company name">
+            </div>
+            <div class="form-group">
+                <label for="quote-quantity">Quantity <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="quote-quantity" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-price">Price Per Share <span class="text-danger">*</span></label>
+                <input type="number" class="form-control" id="quote-price" placeholder="Enter price per share" required>
+            </div>
+            <div class="form-group">
+                <label for="quote-remark">Remark</label>
+                <textarea class="form-control" id="quote-remark" rows="3" placeholder="Enter your remarks"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="trade-option">Select a Trade Option <span class="text-danger">*</span></label>
+                <select class="form-control" id="trade-option" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="buy">Buy</option>
+                    <option value="sell">Sell</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Request</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+        <!-- Login/Signp-->
+<div class="modal fade" id="loginSignupModal" tabindex="-1" aria-labelledby="loginSignupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginSignupModalLabel">Login / Signup</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Login/Signup Form -->
+                <ul class="nav nav-tabs" id="loginSignupTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab" aria-controls="signup" aria-selected="false">Signup</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="loginSignupTabContent">
+                    <!-- Login Form -->
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <form>
+                            <div class="form-group">
+                                <label for="loginEmail">Email address</label>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                    <!-- Signup Form -->
+                    <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                        <form>
+                            <div class="form-group">
+                                <label for="signupName">Full Name</label>
+                                <input type="text" class="form-control" id="signupName" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupEmail">Email address</label>
+                                <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupPassword">Password</label>
+                                <input type="password" class="form-control" id="signupPassword" placeholder="Create a password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Signup</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Altius Investech. All rights reserved.</p>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="#contact-us" class="text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Open Modal on Button Click
+document.getElementById('requestQuoteBtn').addEventListener('click', function() {
+    document.getElementById('requestQuoteModal').style.display = 'block';
+});
+
+// Close Modal when 'X' is clicked
+document.getElementById('closeModal').addEventListener('click', function() {
+    document.getElementById('requestQuoteModal').style.display = 'none';
+});
+
+// Close Modal when clicking outside the form
+window.onclick = function(event) {
+    if (event.target == document.getElementById('requestQuoteModal')) {
+        document.getElementById('requestQuoteModal').style.display = 'none';
+    }
+};
+</script>
+
+    </body>
+    
+    </html>
+    
